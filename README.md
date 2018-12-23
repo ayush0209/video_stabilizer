@@ -19,7 +19,7 @@ The real-time feature-based electronic image stabilization algorithm consists of
 
 In this project, first three steps are implemented in C++ using OpenCV library. These C++ source code files are then compiled in MATLAB using a compatible C++ compiler to obtain mex (MATLAB Executable) files. OpenCV interface package consists of inbuilt OpenCV libraries, data type conversion between MATLAB and OpenCV.
 
-Detailed explanation of complete MATLAB code ( transformationmatrixgen.m & videostabilizer.m )and all the algorithms in C++ files ( built using in-built functions in OpenCV library ) is present in Wiki.
+Detailed explanation of complete MATLAB code ( transformationmatrixgen.m & videostabilizer.m )and all the algorithms in C++ files (built using OpenCV library) is present in Wiki.
 
 # requirement & setup
 Following are required to be installed for running program on local machine:
@@ -29,3 +29,9 @@ Following are required to be installed for running program on local machine:
 4. C++ compiler (Microsoft Visual C++ 2013 or higher is highly recommended)
 
 # usage
+1. Download and install Computer Vision System Toolbox from Add-ons option in top window panel of MATLAB.
+2. Download and install OpenCV interface by MATLAB command "_visionSupportPackages_".
+3. Setup C++ compiler using command "_mex setup c++_"
+4. Download all code files in a folder and set the same folder as current working directory in MATLAB.
+5. Compile all the C++ files using command "_mexOpenCV filename_", example "_mexOpenCV detectORBFeatures.cpp_".
+6. Run program using MATLAB command "_videostabilizer_"
