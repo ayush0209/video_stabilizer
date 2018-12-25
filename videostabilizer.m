@@ -1,4 +1,3 @@
-
 filename = 'shaky_car.avi';
 hVideoSrc = vision.VideoFileReader(filename, 'ImageColorSpace', 'Intensity');
 imgA = step(hVideoSrc);
@@ -29,21 +28,17 @@ Hcumulative = H* Hcumulative;
 imgBp = imwarp(imgB,affine2d(Hcumulative),'OutputView',imref2d(size(imgB)));
 
 
-%mask = imwarp(ones(size(imgB)), affine2d(Hcumulative), 'OutputView',imref2d(size(imgB)));
-%mosaic = step(halphablender, ff, imgBp, mask);
-
-
 % Displaying as color composite with last corrected frame
 step(hVPlayer, imgBp);  
 correctedMean = correctedMean +imgBp;
 ii = ii+1;
 end
+
 correctedMean = correctedMean/(ii-2);
 movMean = movMean/(ii-2);
 
 release(hVideoSrc);
 release(hVPlayer);
-
 
 figure; imshowpair(movMean, correctedMean, 'montage');
 title(['Raw input mean', repmat(' ',[1 50]), 'Corrected sequence mean']);
